@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: Trimpa
+
+  profiles:
+    active: local
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/trimpa_db}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    initialization-mode: never
+    platform: postgres
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+
+server:
+  servlet:
+    context-path: /api
+  port: 8081
+
+# application config :
+application:
+  front-url: ${FRONT_URL:http://localhost:3000}
